@@ -51,9 +51,14 @@ class Status(Category):
 
 
 class Test(models.Model):
-	specialist = models.ForeignKey(Specialist, on_delete=models.CASCADE)
-	business_line = models.ForeignKey(BusinessLine, on_delete=models.CASCADE)
-	club = models.ForeignKey(Club, on_delete=models.CASCADE)
+	specialist = models.ForeignKey(Specialist, on_delete=models.CASCADE, null=True)
+	business_line = models.ForeignKey(BusinessLine, on_delete=models.CASCADE, null=True)
+	club = models.ForeignKey(Club, on_delete=models.CASCADE, null=True)
+	test_type = models.ForeignKey(TestType, on_delete=models.CASCADE, null=True)
+	component = models.ForeignKey(Component, on_delete=models.CASCADE, null=True)
+	variable = models.ForeignKey(Variable, on_delete=models.CASCADE, null=True)
+	winner = models.ForeignKey(Winner, on_delete=models.CASCADE, null=True)
+	status = models.ForeignKey(Status, on_delete=models.CASCADE, null=True)
 	code = models.CharField(max_length=200)
 	product = models.CharField(max_length=200)
 	
